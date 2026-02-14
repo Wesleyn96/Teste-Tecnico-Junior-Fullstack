@@ -1,105 +1,78 @@
-# 🧪 Teste Prático - Desenvolvedor Fullstack Júnior
 
-## 📝 Descrição do Desafio
-Desenvolver uma aplicação web para cadastro de Cliente e Endereços. 
+Cadastro de Clientes e Endereços
+Este projeto consiste em uma aplicação Fullstack desenvolvida para o gerenciamento de clientes e seus respectivos endereços. A solução foi projetada priorizando a organização do código, a separação de responsabilidades e a experiência do usuário.
 
----
+Tecnologias Utilizadas
+Backend
+Runtime: Node.js com TypeScript
 
-## 📋 Requisitos Funcionais 
-- O usuário deve ser capaz de criar clientes e vincular um ou mais endereços a ele
-- O usuário deve ser capaz de cadastrar e editar endereços usando a API [ViaCEP](https://viacep.com.br/) e obter os dados de endereço automaticamente
-- O usuário deve ser capaz de escolher entre cadastrar um cliente que é pessoa física (CPF) ou jurídica (CNPJ)
-- O usuário deve ser capaz de editar e excluir dados do cliente e endereços
-- O usuário deve ser capaz de buscar clientes
-- O usuário deve ser capaz de realizar busca por nome ou email, e filtrar dados por data
+Framework: Express (ou o framework utilizado)
 
----
+ORM: Prisma
 
-## ⚙️ Requisitos Técnicos
+Banco de Dados: PostgreSQL (ou MongoDB)
 
-### Observações Importantes
-- Os requisitos listados abaixo são **obrigatórios**, mas funcionalidades extras que agreguem **usabilidade, performance ou segurança** serão bem-vindas e avaliadas positivamente.
-- O candidato deve estar preparado para **explicar suas escolhas técnicas** (bibliotecas, padrões de arquitetura, banco de dados, etc.) e **como essas escolhas foram aplicadas** no projeto. 
+Frontend
+Framework: React com Vite e TypeScript
 
----
+Interface: Tailwind CSS e shadcn/ui
 
-### Backend
-- **Stack**: Node.js + Typescript (uso de framework é permitido)
-- **Banco de dados**: PostgreSQL ou MongoDB
+Formulários: React Hook Form e Zod (validação)
 
-#### Banco de Dados (Campos mínimos)
-**Cliente**
-- nome (obrigatório)  
-- email (obrigatório)  
-- whatsapp  
-- tipo: [CPF/CNPJ] (obrigatório)  
-- cpf  
-- cnpj  
+Requisições: Axios
 
-**Endereço**
-- cep  
-- rua  
-- bairro  
-- cidade  
+Funcionalidades Implementadas
+Relacionamento 1:N: Estrutura que permite vincular múltiplos endereços a um único cliente.
 
----
+Integração ViaCEP: Preenchimento automático de rua, bairro e cidade ao informar o CEP, otimizando o cadastro de endereços.
 
-### Frontend
-- **Stack**: React + Vite + [shadcn/ui](https://ui.shadcn.com/)
+Diferenciação PF/PJ: O formulário alterna dinamicamente entre os campos de CPF e CNPJ, incluindo validações específicas para cada tipo.
 
----
+Gestão de Clientes: CRUD completo com campos de nome, e-mail, WhatsApp e tipo de pessoa.
 
-## 🤖 Uso de Inteligência Artificial (IA)
-O uso de ferramentas de **IA** (como ChatGPT, Copilot, etc.) é **permitido**, mas com as seguintes regras:
-- **Não é permitido** utilizar IA para **gerar código completo** ou **copiar soluções prontas**.
-- O uso é permitido para:
-  - Consultar dúvidas conceituais
-  - Pesquisar boas práticas
-  - Obter explicações ou comparações de abordagens
-- O candidato deve ter **total domínio** sobre as escolhas técnicas realizadas, demonstrando capacidade de explicar:
-  - **Por que** optou por determinada solução
-  - **Como** ela foi implementada dentro do projeto
+Sistema de Busca e Filtros: Listagem com pesquisa por nome ou e-mail e filtragem por período de data.
 
----
+Instruções de Execução
+Configuração de Ambiente
+Antes de iniciar, certifique-se de configurar as variáveis de ambiente no arquivo .env dentro da pasta do backend (ex: DATABASE_URL).
 
-## 🌟 Diferenciais
+Backend
+Navegue até a pasta do servidor:
 
-### Backend
-- Organização do código seguindo boas práticas e clean-code
-- Virtualização do ambiente (Docker)
-- Uso de **ORM** (Prisma, Sequelize, Mongoose, etc.)
+Bash
+cd backend
+Instale as dependências:
 
-### Frontend
-- Uso de **React Hook Form** para gerenciamento de formulários
-- Uso de **React Query** para requisições e cache de dados
-- UI responsiva e amigável
+Bash
+npm install
+Execute as migrações do banco de dados:
 
----
+Bash
+npx prisma migrate dev
+Inicie o serviço:
 
-## 📦 Entrega
+Bash
+npm run dev
+Frontend
+Navegue até a pasta da interface:
 
-1. O candidato deve **clonar o repositório base** fornecido pela empresa.  
-2. Após finalizar o desafio, deverá **subir o código em um repositório público** no GitHub.  
-3. Enviar o **link do repositório finalizado** para avaliação.  
+Bash
+cd frontend
+Instale as dependências:
 
-O repositório deve conter um **README.md** com:
-- Passos para rodar o backend
-- Passos para rodar o frontend
+Bash
+npm install
+Inicie a aplicação:
 
----
+Bash
+npm run dev
+Arquitetura e Boas Práticas
+O projeto foi estruturado seguindo o Service Pattern e princípios do SOLID. A lógica de negócio está concentrada em camadas de serviço, o que desativa a dependência direta das rotas em relação à persistência de dados.
 
-## ✅ Critérios de Avaliação
-- Cobertura de requisitos funcionais
-- Busca e filtros funcionando corretamente
-- Organização do código e boas práticas
-- Estruturação do projeto
-- Clareza na documentação (`README.md`)
-- Capacidade de explicar e justificar as escolhas técnicas
+Destaques da implementação:
 
----
+Clean Code: Nomenclatura clara de variáveis e funções.
 
-## ⏱️ Prazo
-- **5 dias corridos** após receber o desafio.  
+Tipagem Estrita: Uso de interfaces e tipos do TypeScript em todo o fluxo de dados.
 
-Qualquer dúvida, fique à vontade para nos perguntar pelo canal de comunicação da vaga.  
-Boa sorte 🚀
+Componentização: Interface construída com componentes reutilizáveis para garantir consistência visual.
